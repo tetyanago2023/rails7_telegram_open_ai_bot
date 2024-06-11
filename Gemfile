@@ -68,3 +68,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "telegram-bot-ruby", "~> 2.0"
+gem "ruby-openai", "~> 7.1"
+gem "sidekiq", "~> 7.2"
