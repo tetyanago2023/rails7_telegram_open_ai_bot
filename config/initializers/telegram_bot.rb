@@ -1,6 +1,11 @@
 require 'telegram/bot'
 
 Rails.application.config.after_initialize do
+  puts "Running Telegram Bot Job!"
+  TelegramBotWorkerJob.perform_async(Rails.application.credentials.dig(:telegram_bot))
+end
+
+Rails.application.config.after_initialize do
   token = Rails.application.credentials.dig(:telegram_bot)
 
   Telegram::Bot::Client.run(token) do |bot|
